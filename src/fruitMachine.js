@@ -5,7 +5,7 @@ class FruitMachine {
     this.slots = [];
   }
 
-  play(arr = [
+  rollSlots(arr = [
       Math.floor(Math.random() * 3),
       Math.floor(Math.random() * 3),
       Math.floor(Math.random() * 3),
@@ -14,10 +14,14 @@ class FruitMachine {
     arr.forEach((element) => {
       this.slots.push(this.fruit[element])
     }, this);
+  }
 
+  payIn(amount) {
     this.jackpot += 1;
+  }
 
-    if ( arr.every( (val, i, arr) => val === arr[0] )) {
+  calculatePayOut() {
+    if (this.slots.every( (val, i, arr) => val === arr[0] )) {
       return 'JACKPOT';
     }
   }
