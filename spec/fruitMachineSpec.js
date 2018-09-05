@@ -23,14 +23,26 @@ describe('FruitMachine', () => {
   describe('calculatePayOut', () => {
     it('should return jackpot if all fruit are the same', () => {
       let fruitMachine = new FruitMachine(10)
-      fruitMachine.rollSlots([0, 0, 0, 0]);
-      expect(fruitMachine.calculatePayOut()).toEqual('JACKPOT');
+      fruitMachine.play([0, 0, 0, 0]);
+      expect(fruitMachine.calculatePayOut()).toEqual(11);
     });
 
     it('should not return jackpot if all fruit are not the same', () => {
       let fruitMachine = new FruitMachine(10)
-      fruitMachine.rollSlots([0, 1, 2, 3]);
-      expect(fruitMachine.calculatePayOut()).not.toEqual('JACKPOT');
+      fruitMachine.play([0, 1, 2, 3]);
+      expect(fruitMachine.calculatePayOut()).not.toEqual(11);
+    });
+  });
+
+  describe('play', () => {
+    it('should return jackpot if all fruit are the same', () => {
+      let fruitMachine = new FruitMachine(10)
+      expect(fruitMachine.play([0,0,0,0])).toEqual(11);
+    });
+
+    it('should return 0 if all fruit are not the same', () => {
+      let fruitMachine = new FruitMachine(10)
+      expect(fruitMachine.play([0,0,0,1])).toEqual(0);
     });
   });
 });

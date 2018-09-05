@@ -22,7 +22,15 @@ class FruitMachine {
 
   calculatePayOut() {
     if (this.slots.every( (val, i, arr) => val === arr[0] )) {
-      return 'JACKPOT';
+      return this.jackpot;
+    } else {
+      return 0;
     }
+  }
+
+  play(arr = null ) {
+    this.rollSlots(arr);
+    this.payIn(1);
+    return this.calculatePayOut();
   }
 }
