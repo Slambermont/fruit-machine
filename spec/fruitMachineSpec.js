@@ -16,5 +16,10 @@ describe('FruitMachine', () => {
       fruitMachine.play();
       expect(fruitMachine.jackpot).toEqual(11);
     });
+
+    it('should return jackpot if all fruit are the same', () => {
+      let fruitMachine = new FruitMachine(10)
+      expect(fruitMachine.play([0, 0, 0, 0])).toEqual('JACKPOT');
+    });
   });
 });
