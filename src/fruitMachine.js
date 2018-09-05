@@ -6,13 +6,15 @@ class FruitMachine {
   }
 
   play(arr = [
-    Math.floor(Math.random() * 3),
-    Math.floor(Math.random() * 3),
-    Math.floor(Math.random() * 3),
-    Math.floor(Math.random() * 3)
-  ]) {
+      Math.floor(Math.random() * 3),
+      Math.floor(Math.random() * 3),
+      Math.floor(Math.random() * 3),
+      Math.floor(Math.random() * 3)
+    ]) {
     arr.forEach((element) => {
       this.slots.push(this.fruit[element])
     }, this);
+
+    this.jackpot += 1;
   }
 }
