@@ -13,5 +13,13 @@ describe('Player', () => {
       player.turn(fruitMachine);
       expect(fruitMachine.play).toHaveBeenCalled();
     });
+
+    it('should decrease budget by 1', () => {
+      let player = new Player(20);
+      let fruitMachine = new FruitMachine(10);
+
+      player.turn(fruitMachine);
+      expect(player.budget).toEqual(19)
+    });
   });
 });

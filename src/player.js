@@ -4,6 +4,7 @@ class Player {
   }
 
   turn(fruitMachine) {
+    this.budget -= 1;
     fruitMachine.play();
   }
 }
