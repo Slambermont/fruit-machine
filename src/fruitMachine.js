@@ -16,7 +16,7 @@ class FruitMachine {
     }, this);
   }
 
-  payIn(amount) {
+  payIn() {
     this.jackpot += 1;
   }
 
@@ -28,9 +28,9 @@ class FruitMachine {
     }
   }
 
-  play(arr = null ) {
+  play(arr = null) {
     this.rollSlots(arr);
-    this.payIn(1);
+    this.payIn();
     return this.calculatePayOut();
   }
 }
