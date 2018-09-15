@@ -18,8 +18,16 @@ describe('Player', () => {
       let player = new Player(20);
       let fruitMachine = new FruitMachine(10);
 
-      player.turn(fruitMachine);
+      player.turn(fruitMachine, [0, 1, 2, 3]);
       expect(player.budget).toEqual(19)
+    });
+
+    it('should increase budget by earnings', () => {
+      let player = new Player(20);
+      let fruitMachine = new FruitMachine(10);
+
+      player.turn(fruitMachine, [0, 0, 0, 0]);
+      expect(player.budget).toEqual(30);
     });
   });
 });

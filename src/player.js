@@ -3,8 +3,8 @@ class Player {
     this.budget = budget
   }
 
-  turn(fruitMachine) {
+  turn(fruitMachine, arr) {
     this.budget -= 1;
-    this.budget += fruitMachine.play();
+    this.budget += fruitMachine.play(arr);
   }
 }
