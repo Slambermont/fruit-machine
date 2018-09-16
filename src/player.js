@@ -1,10 +1,10 @@
 class Player {
-  constructor(budget) {
-    this.budget = budget
+  constructor(credits) {
+    this.credits = credits
   }
 
   turn(fruitMachine, arr) {
-    this.budget -= SINGLE_PLAY;
-    this.budget += fruitMachine.play(arr);
+    this.credits -= SINGLE_PLAY;
+    this.credits += fruitMachine.play(arr);
   }
 }
