@@ -20,17 +20,16 @@ class FruitMachine {
     this.jackpot += 1;
   }
 
-  calculatePayOut() {
-    if (this.slots.every( (val, i, arr) => val === arr[0] )) {
-      return this.jackpot;
-    } else {
-      return 0;
-    }
+  _payOut() {
+    return this.slots.every( (val, i, arr) => val === arr[0] ) ?
+      this.jackpot : 0;
   }
 
   play(arr) {
-    this.rollSlots(arr);
     this.payIn();
-    return this.calculatePayOut();
+    this.rollSlots(arr);
+    let payOut = this._payOut();
+    this.jackpot -= payOut;
+    return payOut
   }
 }
