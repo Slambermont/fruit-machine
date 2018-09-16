@@ -16,17 +16,31 @@ class FruitMachine {
     }, this);
   }
 
-  payIn() {
+  _payIn() {
     this.jackpot += 1;
   }
 
   _payOut() {
-    return this.slots.every( (val, i, arr) => val === arr[0] ) ?
-      this.jackpot : 0;
+    if ( this.slots.every( (val, i, arr) => val === arr[0] ) ) {
+      return this.jackpot;
+    } else if ( !this._hasDuplicates(this.slots) ) {
+      return Math.floor( this.jackpot / 2 );
+    } else {
+      return 0;
+    }
+  }
+
+  _hasDuplicates(arr) {
+    for ( let x = 0; x < arr.length; x++ ) {
+      for ( let y = 0; y < arr.length; y++ ) {
+        if ( arr[x] === arr[y] && x != y ) { return true }
+      }
+    }
+    return false
   }
 
   play(arr) {
-    this.payIn();
+    this._payIn();
     this.rollSlots(arr);
     let payOut = this._payOut();
     this.jackpot -= payOut;
