@@ -21,12 +21,18 @@ describe('FruitMachine', () => {
 
     it('should return 0 if all fruit are not the same', () => {
       let fruitMachine = new FruitMachine(10)
-      expect(fruitMachine.play([0,0,0,1])).toEqual(0);
+      expect(fruitMachine.play([0,3,0,1])).toEqual(0);
     });
 
     it('should return 5 if all fruit are different', () => {
       let fruitMachine = new FruitMachine(10);
       expect(fruitMachine.play([0, 1, 2, 3])).toEqual(5);
+      expect(fruitMachine.jackpot).toEqual(6);
+    });
+
+    it('should return 5 if 2 adjacent fruit are the same', () => {
+      let fruitMachine = new FruitMachine(10);
+      expect(fruitMachine.play([0, 1, 1, 2])).toEqual(5);
       expect(fruitMachine.jackpot).toEqual(6);
     });
   });

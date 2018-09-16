@@ -27,6 +27,8 @@ class FruitMachine {
       return this.jackpot;
     } else if ( !this._hasDuplicates(this.slots) ) {
       return Math.floor( this.jackpot / 2 );
+    } else if ( this._hasAdjacentDuplicates(this.slots) ) {
+      return ( SINGLE_PLAY * 5 );
     } else {
       return 0;
     }
@@ -37,6 +39,13 @@ class FruitMachine {
       for ( let y = 0; y < arr.length; y++ ) {
         if ( arr[x] === arr[y] && x != y ) { return true }
       }
+    }
+    return false
+  }
+
+  _hasAdjacentDuplicates(arr) {
+    for ( let x = 0; x < arr.length; x++ ) {
+      if ( arr[x] === arr[x+1] ) { return true }
     }
     return false
   }
