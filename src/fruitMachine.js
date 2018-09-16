@@ -1,3 +1,5 @@
+const SINGLE_PLAY = 1
+
 class FruitMachine {
   constructor(jackpot) {
     this.jackpot = jackpot;
@@ -17,7 +19,7 @@ class FruitMachine {
   }
 
   _payIn() {
-    this.jackpot += 1;
+    this.jackpot += SINGLE_PLAY;
   }
 
   _payOut() {
