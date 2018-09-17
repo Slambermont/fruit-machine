@@ -1,3 +1,4 @@
-Tech test practice
+Fruit Machine
+=============
 
-Guardian fruit machine pairing test
+This is an exercise from the [Guardian pairing tests](https://github.com/guardian/pairing-tests/tree/master/fruit-machine).

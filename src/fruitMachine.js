@@ -25,12 +25,16 @@ class FruitMachine {
 
   _payOut() {
     if ( this.slots.every( (val, i, arr) => val === arr[0] ) ) {
+      console.log('Jackpot! You won ' + this.jackpot + '!');
       return this.jackpot;
     } else if ( !this._hasDuplicates(this.slots) ) {
+      console.log('Congrats! You won ' + Math.floor( this.jackpot / 2 ) + '!');
       return Math.floor( this.jackpot / 2 );
     } else if ( this._hasAdjacentDuplicates(this.slots) ) {
+      console.log('Congrats! You won ' + ( SINGLE_PLAY * 5 ) + '!');
       return ( SINGLE_PLAY * 5 );
     } else {
+      console.log('Sorry, you lost!');
       return 0;
     }
   }
