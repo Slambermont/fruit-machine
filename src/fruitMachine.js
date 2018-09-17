@@ -13,6 +13,7 @@ class FruitMachine {
       Math.floor(Math.random() * 3),
       Math.floor(Math.random() * 3)
     ]) {
+    this.slots = []
     arr.forEach((element) => {
       this.slots.push(this.fruit[element])
     }, this);
