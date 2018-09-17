@@ -55,7 +55,7 @@ class FruitMachine {
     this._payIn();
     this.rollSlots(arr);
     let payOut = this._payOut();
-    this.jackpot -= payOut;
+    payOut <= this.jackpot ? this.jackpot -= payOut : this.jackpot = 0;
     return payOut
   }
 }

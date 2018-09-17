@@ -35,5 +35,11 @@ describe('FruitMachine', () => {
       expect(fruitMachine.play([0, 1, 1, 2])).toEqual(5);
       expect(fruitMachine.jackpot).toEqual(6);
     });
+
+    it('should give out free credits if jackpot is too low', () => {
+      let fruitMachine = new FruitMachine(3);
+      expect(fruitMachine.play([0,1,1,3])).toEqual(5);
+      expect(fruitMachine.jackpot).toEqual(0);
+    });
   });
 });
