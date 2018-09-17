@@ -29,5 +29,13 @@ describe('Player', () => {
       player.turn(fruitMachine, [0, 0, 0, 0]);
       expect(player.credits).toEqual(30);
     });
+
+    it('throws error if player does not have enough credits', () => {
+      let player = new Player(0);
+      let fruitMachine = new FruitMachine(10);
+      expect(() => {
+        player.turn(fruitMachine)
+      }).toThrow('You do not have enough credits.');
+    });
   });
 });
